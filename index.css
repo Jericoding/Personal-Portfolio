@@ -1,0 +1,409 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+main{
+    width: 100%;
+    display: block;
+    background-image: url('image/coffee.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.upper_Nav{
+    background:midnightblue;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: rgb(186, 204, 219);
+    padding: 15px 0;
+    width: 100%;
+}
+#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:1rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.Nav{
+    display: flex;
+    align-items: center;
+    column-gap: 4rem;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Nav a{
+    text-decoration: none;
+    color: rgb(206, 206, 206);
+}
+.FB #fb{
+    background-color: blue;
+    padding: 2px 10px;
+    color: whitesmoke;
+    border-radius: 50px;
+}
+.FB #fb::before{
+    text-align: center;
+    content: "facebook";
+    position: absolute;
+    height: 18px;
+    width: 100px;
+    padding: 7px 0;
+    border-radius: 100px;
+    background:midnightblue;
+    opacity: 0;
+    font-size: 1rem;
+    top: 2.98rem;
+    transform: translateX(-50%);
+    transition: opacity 0.2s ease;
+}
+.TWIT #twit{
+    background:rgb(44, 174, 226);
+    padding: 2px 10px;
+    color: whitesmoke;
+    border-radius: 50px;
+}
+.TWIT #twit::before{
+    text-align: center;
+    content: "twitter";
+    position: absolute;
+    height: 18px;
+    width: 100px;
+    padding: 7px 0;
+    border-radius: 100px;
+    background:midnightblue;
+    opacity: 0;
+    font-size: 1rem;
+    top: 2.98rem;
+    transform: translateX(-50%);
+    transition: opacity 0.2s ease;
+}
+.GIT #git::before{
+    text-align: center;
+    content: "github";
+    position: absolute;
+    height: 18px;
+    width: 100px;
+    padding: 7px 0;
+    border-radius: 20px;
+    background:midnightblue;
+    opacity: 0;
+    font-size: 1rem;
+    top: 2.98rem;
+    transform: translateX(-35%);
+    transition: opacity 0.2s ease;
+}
+.Nav img{
+    transform: translateY(2px);
+    align-self: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+.FB:hover #fb::before{
+    opacity: 1;
+}
+.TWIT:hover #twit::before{
+    opacity: 1;
+}
+.GIT:hover #git::before{
+    opacity: 1;
+}
+@media (max-width:480px){
+    .FB:hover #fb::before{
+        opacity: 0;
+    }
+    .TWIT:hover #twit::before{
+        opacity: 0;
+    }
+    .GIT:hover #git::before{
+        opacity: 0;
+    } 
+}
+.content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    column-gap: 5rem;
+}
+.left_content{
+    display: grid;
+    gap: 3rem;
+    padding-top: 5rem;
+}
+.upper_left{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: midnightblue;
+}
+.lower_left{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 5rem;
+}
+.lower_left span{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lower_left h1{
+    font-size: 5rem;
+    color: rgb(0, 0, 61);
+    animation: 2s ease changeColor linear;
+}
+.lower_left h3{
+    font-size: 2rem;
+    color: rgb(34, 62, 122);
+}
+#lower_left_nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+.lower_left a{
+    text-decoration: none;
+    padding: 0;
+}
+.lower_left p{
+    padding: .2rem 1.5rem;
+    font-size: 1.5rem;
+    border: 2px solid midnightblue;
+    color: midnightblue;
+}
+.lower_left img{
+    width: 35px;
+
+}
+.lower_left a:hover p{
+    color: white;
+    border: 2px solid transparent;
+    background: rgb(192, 1, 1);
+}
+.right_content{
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right_content form{
+    padding: 10px;
+    backdrop-filter: blur(5);
+    background-color: rgb(231, 228, 228);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+    gap: 1rem;
+    border: 1px solid gainsboro;
+}
+form .top{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+form .top img{
+    width: 100px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+form .message{
+    display: flex;
+    flex-direction: column;
+    gap:.5rem;
+    text-align: center;
+    width: 80%;
+}
+.message h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+.message input{
+    font-size: 1rem;
+    border-radius: 5px;
+    outline: none;
+    border-style: none;
+    padding: 10px;
+    background-color: rgb(154, 189, 218);
+    color: midnightblue;
+}
+.message span{
+    display: flex;
+    gap: 1rem;
+}
+.message textarea{
+    height: 40vh;
+    background-color: rgb(154, 189, 218);
+    border-style: none;
+    outline: none;
+    padding-left: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+.message button{
+    background-color: midnightblue;
+    border-style: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(185, 184, 184);
+    padding: 10px;
+    cursor: pointer;
+}
+.message button:hover{
+    background-color: rgb(49, 49, 151);
+
+}
+.content_2{
+    width: 100%;
+    height: auto;
+    padding: 0 0 20px 0;
+    text-align: center;
+}
+.content_2 h1{
+    width: 100%;
+    background-color: midnightblue;
+    color: white;
+}
+.project{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 10px;
+}
+.project a{
+    width: 30%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    
+}
+.project a img{
+    width: 90%;
+    height: 100%;
+    border-radius: 5px;
+}
+.project a p{
+    width: 90%;
+    padding: 5px 0;
+    background-color: midnightblue;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.project a p:hover{
+    background-color: rgb(49, 49, 151);
+}
+footer{
+    background-color: rgb(106, 121, 161);
+}
+.upper_footer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 1rem;
+    color: rgb(43, 44, 44);
+
+}
+.address{
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .2rem;
+}
+.address p:nth-child(1){
+    color: rgb(43, 44, 44);
+}
+.address p:nth-child(2){
+    font-size: .9rem;
+}
+.accounts{
+    padding-right:10px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+}
+.accounts span{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: .5rem;
+    color: rgb(43, 44, 44);
+
+}
+.accounts p{
+    font-size: 1rem;
+}
+.other{
+    display: flex;
+    justify-content: center;
+}
+.other p{
+    color: rgb(43, 44, 44);
+
+}
+.lower_footer{
+    display: flex;
+    justify-content: center;
+}
+@media (max-width:1000px){
+    .right_content{
+        width: 50%;
+    }
+    .project a{
+        width: 60%;
+    }
+}
+@media (max-width:800px){
+    .right_content{
+        width: 60%;
+    }
+    .project a{
+        width: 70%;
+    }
+}
+@media (max-width:700px){
+    .right_content{
+        width: 70%;
+    }
+    .project a{
+        width: 80%;
+    }
+}
+@media (max-width:600px){
+    .right_content{
+        width: 80%;
+    }
+    .project a{
+        width: 90%;
+    }
+}
