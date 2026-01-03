@@ -227,14 +227,18 @@
             height: 300px;
             border-radius: 50%;
             background-color: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             margin: 0 auto;
             border: 8px solid white;
             box-shadow: var(--box-shadow);
-            font-size: 6rem;
-            color: var(--accent);
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* About Section */
@@ -683,7 +687,7 @@
                 </div>
                 <div class="hero-image">
                     <div class="avatar">
-                        <i class="fas fa-laptop-code"></i>
+                            <img src="assets/profile.jpg" alt="" srcset="">
                     </div>
                 </div>
             </div>
