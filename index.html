@@ -2,103 +2,1068 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Jerico Desalla | Information Systems Graduate & Junior Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --gray: #95a5a6;
+            --dark: #1a252f;
+            --success: #27ae60;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --border-radius: 4px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary);
+        }
+
+        section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: var(--spacing-lg);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 8rem;
+            padding-bottom: var(--spacing-xl);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+        }
+
+        .role {
+            color: var(--accent);
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-btns {
+            margin-top: var(--spacing-md);
+        }
+
+        .hero-btns .btn {
+            margin-right: var(--spacing-sm);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            border: 8px solid white;
+            box-shadow: var(--box-shadow);
+            font-size: 6rem;
+            color: var(--accent);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-text {
+            padding-right: var(--spacing-md);
+        }
+
+        .values-list {
+            margin-top: var(--spacing-md);
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .value-icon {
+            background-color: var(--accent);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-sm);
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: var(--light);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-top: var(--spacing-sm);
+        }
+
+        .skill-tag {
+            background-color: var(--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: var(--spacing-md);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin: var(--spacing-sm) 0;
+        }
+
+        .project-tech span {
+            background-color: var(--light);
+            color: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        /* Certificates Section */
+        .certificates {
+            background-color: var(--light);
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .cert-card {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cert-card h3 {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cert-meta {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cert-actions {
+            margin-top: auto;
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--accent);
+        }
+
+        .timeline-item {
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+
+        .timeline-item:nth-child(odd):before {
+            right: -30px;
+        }
+
+        .timeline-item:nth-child(even):before {
+            left: -30px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--spacing-lg);
+        }
+
+        .contact-info {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-sm);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: var(--spacing-sm);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 var(--spacing-sm);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content,
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text {
+                padding-right: 0;
+            }
+            
+            .hero {
+                text-align: center;
+            }
+            
+            .hero-btns {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px;
+            }
+            
+            .timeline-item:before {
+                left: 20px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: var(--spacing-lg);
+                transition: var(--transition);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav li {
+                margin: var(--spacing-sm) 0;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .avatar {
+                width: 250px;
+                height: 250px;
+                font-size: 5rem;
+            }
+            
+            section {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <main>
-        <div class="upper_Nav">
-            <div id="logo">
-                <span><h1>LOGO</h1></span>
-            </div>
-            <div class="Nav">
-                <a href="https://www.facebook.com/jerico.desalla.7" class="FB"><h3 id="fb">f</h3></a>
-                <a href="https://www.twitter.com" class="TWIT"><h3 id="twit">t</h3></a>
-                <a href="https://www.Jericoding.github.io" class="GIT"><img src="image/github.png" alt="gthb" ><h3 id="git"></h3></a>
-            </div>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Jerico<span>Desalla</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="content">
-            <div class="left_content">
-                <div class="upper_left">
-                    <h1>Hi, Welcome<br>to my website.</h1>
-                </div>
-               <div class="lower_left">
-                <span>
-                    <h1>Jerico</h1>
-                    <h3>Web Developer</h3>
-                </span>
-                <a href="#">
-                    <span id="lower_left_nav" >
-                        <img src="image/login.png" alt="arrow">
-                        <p>Home</p>    
-                    </span>
-                </a>
-                <h4>Never Stop Chasing Your Dreams</h4>
-               </div>
-            </div>
-            <div class="right_content">
-                <form action="">
-                    <div class="top">
-                        <img src="image/profile.png" alt="Image of me">
-                    </div>
-                    <div class="message">
-                        <h1>
-                            Message Me
-                        </h1>
-                        <input type="email" placeholder="Email">
-                        <textarea placeholder="Would you like to send a message?"></textarea>
-                        <span>
-                            <input type="checkbox" id="email"><label for="">jheryqoedesalla@gmail.com</label>
-                        </span>
-                        <button type="submit">Send</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </main>
-    <div class="content_2">
-        <h1>PROJECTS</h1>
-        <div class="project">
-            <a href="html_doc/To-Do-App/index.html" blank>
-                <img src="image/project1.png" alt="Project1">
-                <p>View</p>
-            </a>
-            <a href="#">
-                <img src="image/coffee.jpg" alt="Project2">
-                <p>View</p>
-            </a>
-            <a href="#">
-                <img src="image/coffee.jpg" alt="Project3">
-                <p>View</p>
-            </a>
-        </div>
-    </div>
-    <footer>
-        <div class="upper_footer">
-            <div class="address">
-                <p><address>3511 - Sta.Isabel Buguey, Cagayan</address></p>
-                <p>Location</p>
-            </div>
-            <div>|</div>
+    </header>
 
-            <div class="accounts">
-                <span>
-                    <img src="#" alt="facebook">
-                    <img src="#" alt="google">
-                    <img src="#" alt="github">
-                </span>
-                <p>Platforms</p>
-            </div>
-            <div>|</div>
-            <div class="other">
-                <p>Data and Privacy</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="role">Information Systems Graduate / Junior Web Developer</div>
+                    <h1>Jerico Desalla</h1>
+                    <p>Detail-oriented junior developer with a Bachelor of Science in Information Systems background, focused on web development, system analysis, and practical IT work. Combines academic grounding with real-world government experience to build structured, maintainable solutions.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="avatar">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="lower_footer">
-            <h4>All Rights Reserved &copy</h4>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a Bachelor of Science in Information Systems graduate with a growing focus on web development, system analysis, and practical IT work. My academic background provided me with a solid understanding of how information systems are planned, documented, and implemented—emphasizing structure, accuracy, and long-term maintainability.</p>
+                    <p>As a beginner in the professional field, I am intentional about learning the right way—prioritizing clarity, maintainability, and correct fundamentals over shortcuts. I value traditional development practices such as proper planning, documentation, and organized code, while steadily adapting to modern tools and frameworks.</p>
+                    <div class="values-list">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Structured Approach</h4>
+                                <p>Emphasis on planning, documentation, and organized system design</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4>Continuous Learning</h4>
+                                <p>Committed to mastering fundamentals while adapting to modern tools</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4>Accountability</h4>
+                                <p>Attention to detail and adherence to established procedures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Professional workspace" style="width:100%; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Technical & Professional Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Web Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">UI/UX Principles</span>
+                        <span class="skill-tag">Frontend Frameworks</span>
+                        <span class="skill-tag">Git Version Control</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> System & Database</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">System Analysis</span>
+                        <span class="skill-tag">Database Fundamentals</span>
+                        <span class="skill-tag">SQL Basics</span>
+                        <span class="skill-tag">System Documentation</span>
+                        <span class="skill-tag">Process Mapping</span>
+                        <span class="skill-tag">Data Modeling</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> IT & Professional</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">IT Support</span>
+                        <span class="skill-tag">Technical Documentation</span>
+                        <span class="skill-tag">Office Software</span>
+                        <span class="skill-tag">Project Planning</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Government Processes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects Portfolio</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Clinic Appointment System (UI Prototype)</h3>
+                        <p>A user-friendly appointment scheduling interface for local clinics with patient information forms, appointment calendars, and reminder layouts.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>UI/UX Design</span>
+                        </div>
+                        <p><strong>Objectives:</strong> Streamline clinic scheduling, reduce no-shows, improve patient experience</p>
+                        <p><strong>Future Enhancements:</strong> Backend integration, database, authentication system, SMS notifications</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>To-Do List Application</h3>
+                        <p>A task organization application focusing on priority handling, clean user interaction, and structured data management.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Local Storage</span>
+                            <span>CSS Grid</span>
+                            <span>Responsive Design</span>
+                        </div>
+                        <p><strong>Objectives:</strong> Demonstrate JavaScript proficiency, state management, and clean UI design</p>
+                        <p><strong>Future Enhancements:</strong> User accounts, cloud sync, categorization, recurring tasks</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Intelligence Unit System Concept</h3>
+                        <p>Information system concept drafted during OJT at PNP Regional Information Technology Unit (RITU 2) for intelligence operations support.</p>
+                        <div class="project-tech">
+                            <span>System Analysis</span>
+                            <span>Process Documentation</span>
+                            <span>Data Flow Diagrams</span>
+                            <span>Requirements Gathering</span>
+                        </div>
+                        <p><strong>Objectives:</strong> Analyze operational needs, document system processes, propose structured solution</p>
+                        <p><strong>Future Enhancements:</strong> Full system development, integration with existing PNP systems</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <h2>Certificates & Academic Records</h2>
+            <div class="certificates-container">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Bachelor of Science in Information Systems</h3>
+                    <div class="cert-meta">
+                        <p><i class="far fa-building"></i> University/College</p>
+                        <p><i class="far fa-calendar"></i> Graduated: 2023</p>
+                    </div>
+                    <p>Comprehensive education in system analysis, database management, web development, and IT project management.</p>
+                    <div class="cert-actions">
+                        <a href="#" class="btn">View Diploma</a>
+                        <a href="#" class="btn btn-outline">Download</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Web Development Fundamentals</h3>
+                    <div class="cert-meta">
+                        <p><i class="far fa-building"></i> Online Certification Provider</p>
+                        <p><i class="far fa-calendar"></i> Completed: 2023</p>
+                    </div>
+                    <p>Certification in modern web development practices including HTML5, CSS3, JavaScript, and responsive design.</p>
+                    <div class="cert-actions">
+                        <a href="#" class="btn">View Certificate</a>
+                        <a href="#" class="btn btn-outline">Download</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>PNP RITU 2 OJT Completion</h3>
+                    <div class="cert-meta">
+                        <p><i class="far fa-building"></i> Philippine National Police</p>
+                        <p><i class="far fa-calendar"></i> Completed: 2023</p>
+                    </div>
+                    <p>Successfully completed On-the-Job Training at PNP Regional Information Technology Unit with commendation.</p>
+                    <div class="cert-actions">
+                        <a href="#" class="btn">View Certificate</a>
+                        <a href="#" class="btn btn-outline">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h3>On-the-Job Trainee</h3>
+                        <h4>PNP Regional Information Technology Unit (RITU 2)</h4>
+                        <p>Exposed to IT operations and support tasks. Drafted an information system concept for an intelligence unit, applying system analysis principles, documentation skills, and basic technical problem-solving in a real institutional setting.</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>System concept development for intelligence operations</li>
+                            <li>IT support and troubleshooting</li>
+                            <li>Process documentation and analysis</li>
+                            <li>Exposure to government IT infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - 2023</div>
+                        <h3>Assistant Administrative Staff</h3>
+                        <h4>Department of Social Welfare and Development (DSWD)</h4>
+                        <p>Handled documentation, records, and office processes requiring attention to detail, accountability, and adherence to established procedures. Strengthened understanding of how systems support real organizational workflows in a government environment.</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Document management and record keeping</li>
+                            <li>Office process optimization</li>
+                            <li>Client data handling and privacy compliance</li>
+                            <li>Inter-departmental coordination</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <div>
+                    <h3>Get In Touch</h3>
+                    <p>I'm open to junior developer roles, IT support positions, or system-oriented teams where growth and reliability are valued.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>jerico.desalla@example.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Metro Manila, Philippines</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+63 912 345 6789</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <form class="contact-form" id="contactForm">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm);">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="color: white; margin-bottom: var(--spacing-sm);">Jerico<span style="color: var(--accent);">Desalla</span></div>
+                <p style="max-width: 600px; margin-bottom: var(--spacing-md); color: var(--light);">Information Systems Graduate focused on web development, system analysis, and practical IT experience. Combining academic foundation with real-world exposure for structured, maintainable solutions.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#" style="color: var(--accent);">Download Résumé</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Jerico Desalla. All rights reserved. | Designed for professional portfolio
+                </div>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
 </body>
 </html>
